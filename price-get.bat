@@ -1,1 +1,0 @@
-@php price-get %*
