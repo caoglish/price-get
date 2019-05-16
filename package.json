@@ -4,17 +4,21 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
-    "@types/cheerio": "^0.22.11",
-    "@types/url-parse": "^1.4.3",
     "cheerio": "^1.0.0-rc.3",
-    "gulp": "^4.0.0",
-    "gulp-typescript": "^5.0.1",
+    "commander": "^2.20.0",
     "lodash": "^4.17.11",
     "request": "^2.88.0",
-    "typescript": "^3.4.5",
+    "request-promise": "^4.2.4",
     "url-parse": "^1.4.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/cheerio": "^0.22.11",
+    "@types/lodash": "^4.14.129",
+    "@types/url-parse": "^1.4.3",
+    "gulp": "^4.0.0",
+    "gulp-typescript": "^5.0.1",
+    "typescript": "^3.4.5"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

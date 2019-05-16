@@ -20,6 +20,8 @@ class PcCaseGearExtractor extends Extractor
 		let tag='ol.breadcrumb li';
 		return _.trim(this._$(tag).eq(1).text());
 	}
+
+	
 }
 
 export default PcCaseGearExtractor;
