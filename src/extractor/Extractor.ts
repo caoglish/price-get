@@ -9,7 +9,7 @@ export default abstract class Extractor
 	// _title:string;
 	// _price:string;
 	// _titleSelector:string;
-	// _priceSelector:string;
+	// _priceSelector:string; 
 	constructor(cheerio:CheerioStatic,url:string){
 		this._$=cheerio;
 		this._url=url;

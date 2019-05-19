@@ -167,3 +167,4 @@ typings/
 .dynamodb/
 
 dist/
+json/
