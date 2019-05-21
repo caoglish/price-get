@@ -1,4 +1,4 @@
-import commander = require('commander');
+import commander =require( 'commander');
 import PriceProcessor from './PriceProcessor';
 import Stdout from './exporter/stdout';
 import JsonExporter from './exporter/JsonExporter';
@@ -25,7 +25,7 @@ let priceProcessor = new PriceProcessor(new JsonExporter({
 	filename: filename,
 	newfile: isNewFile
 }));
-// let priceProcessor = new PriceProcessor(new Stdout());
+//let priceProcessor = new PriceProcessor(new Stdout());
 priceProcessor
 	.process(url)
 	.then(() => {

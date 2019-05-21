@@ -4,12 +4,6 @@ import fs = require('fs');
 import _ = require('lodash');
 
 export default class JsonExporter extends Exporter {
-
-
-
-
-	
-
 	export(data: PriceData): void {
 		let jsonString:string;
 		var jsonContent;

@@ -4,8 +4,10 @@ import cheerio = require('cheerio');
 export default abstract class Extractor
 {
 	static DomainList:string[];
+	static isAjaxLoadPage:boolean=false;
 	_$:CheerioStatic; 
 	_url:string;
+
 	// _title:string;
 	// _price:string;
 	// _titleSelector:string;
