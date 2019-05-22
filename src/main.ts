@@ -4,7 +4,7 @@ import Stdout from './exporter/stdout';
 import JsonExporter from './exporter/JsonExporter';
 
 const program = new commander.Command();
-program.version('0.0.1')
+program.version('0.0.2')
 	.option('--url <url>', 'price get from url')
 	.option('--newFile', 'create new file if save into file')
 	.option('--exportType <exportType>','export format')
