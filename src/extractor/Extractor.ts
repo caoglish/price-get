@@ -1,4 +1,5 @@
 import cheerio = require('cheerio');
+import DomReader from '../lib/DomReader';
 
 
 export default abstract class Extractor
@@ -7,6 +8,7 @@ export default abstract class Extractor
 	static isAjaxLoadPage:boolean=false;
 	_$:CheerioStatic; 
 	_url:string;
+	protected _domReader:DomReader;
 
 	// _title:string;
 	// _price:string;
@@ -15,6 +17,7 @@ export default abstract class Extractor
 	constructor(cheerio:CheerioStatic,url:string){
 		this._$=cheerio;
 		this._url=url;
+		this._domReader=new DomReader(this._$);
 	}
 	abstract getPrice(): string;
 	abstract getTitle(): string;

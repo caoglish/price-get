@@ -7,8 +7,7 @@ class DysonExtractor extends Extractor
 	static DomainList=['www.dyson.com.au','dyson.com.au','shop.dyson.com.au']
 
 	getTitle():string{
-		let _titleSelector='.product-name .mainInfo  h1';
-		return _.trim(this._$(_titleSelector).text());
+		return this._domReader.text('.product-name .mainInfo  h1');
 	}
 
 	getPrice():string{

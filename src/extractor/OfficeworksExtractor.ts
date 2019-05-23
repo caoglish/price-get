@@ -9,20 +9,17 @@ class OfficeworksExtractor extends Extractor
 	static isAjaxLoadPage=true;
 
 	getTitle():string{
-		let _titleSelector='h1[data-ref="product-title"]';
-		console.log(this._$("*").length);
-		return _.trim(this._$(_titleSelector).text());
+		return this._domReader.text('h1[data-ref="product-title"]');
 	}
 
 	getPrice():string{
-		let _priceSelector='span[class*="Price__ProductPrice"]';
-		console.log(this._$(_priceSelector).length);
-		return _.trim(this._$(_priceSelector).text());
+
+		return this._domReader.text('span[class*="Price__ProductPrice"]');
 	}
 
 	getCategory():string{
-		let tag='span[class*="Product__CategoryLink"]';
-		return _.trim(this._$(tag).text());
+
+		return this._domReader.text('span[class*="Product__CategoryLink"]');
 	}
 
 	

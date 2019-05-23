@@ -7,18 +7,15 @@ class PcCaseGearExtractor extends Extractor
 	static DomainList=['www.pccasegear.com','pccasegear.com']
 
 	getTitle():string{
-		let _titleSelector='div.prdct_grid_des';
-		return _.trim(this._$(_titleSelector).text());
+		return this._domReader.text('div.prdct_grid_des');
 	}
 
 	getPrice():string{
-		let _priceSelector='div.prdct_price_box .product-price';
-		return _.trim(this._$(_priceSelector).text());
+		return this._domReader.text('div.prdct_price_box .product-price');
 	}
 
 	getCategory():string{
-		let tag='ol.breadcrumb li';
-		return _.trim(this._$(tag).eq(1).text());
+		return this._domReader.text('ol.breadcrumb li',1);
 	}
 
 	
