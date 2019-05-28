@@ -18,7 +18,7 @@ class DysonExtractor extends Extractor
 		}).filter((i,elem)=>{
 			return elem !==null;
 		}).get();
-	 
+
 		return _.trim(price[0]);
 	}
 

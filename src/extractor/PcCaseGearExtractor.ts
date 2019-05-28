@@ -1,24 +1,18 @@
 
-import Extractor from './Extractor';
-import _ = require('lodash');
 
-class PcCaseGearExtractor extends Extractor
+import BasicExtractor from './BasicExtractor';
+
+
+
+class PcCaseGearExtractor extends BasicExtractor
 {
 	static DomainList=['www.pccasegear.com','pccasegear.com']
 
-	getTitle():string{
-		return this._domReader.text('div.prdct_grid_des');
+	protected extractedField={
+		title:'div.prdct_grid_des',
+		price:'div.prdct_price_box .product-price',
+		category:['ol.breadcrumb li',1]
 	}
-
-	getPrice():string{
-		return this._domReader.text('div.prdct_price_box .product-price');
-	}
-
-	getCategory():string{
-		return this._domReader.text('ol.breadcrumb li',1);
-	}
-
-	
 }
 
 export default PcCaseGearExtractor;

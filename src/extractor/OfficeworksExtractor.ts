@@ -1,28 +1,21 @@
 
-import Extractor from './Extractor';
-import _ = require('lodash');
+import BasicExtractor from './BasicExtractor';
 
 
-class OfficeworksExtractor extends Extractor
+
+class OfficeworksExtractor extends BasicExtractor
 {
 	static DomainList=['www.officeworks.com.au','officeworks.com.au'];
 	static isAjaxLoadPage=true;
+	// static waitForSelector='span[class*="Price__ProductPrice"]';
+	static waitForSelector='span[class*="PriceText__ProductPrice"]';
+	static waitFor=10000;
 
-	getTitle():string{
-		return this._domReader.text('h1[data-ref="product-title"]');
+	protected extractedField={
+		title:'h1[data-ref="product-title"]',
+		price:'span[class*="PriceText__ProductPrice"]',
+		category:'span[class*="Product__CategoryLink"]'
 	}
-
-	getPrice():string{
-
-		return this._domReader.text('span[class*="Price__ProductPrice"]');
-	}
-
-	getCategory():string{
-
-		return this._domReader.text('span[class*="Product__CategoryLink"]');
-	}
-
-	
 }
 
 export default OfficeworksExtractor;

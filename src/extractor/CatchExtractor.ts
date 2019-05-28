@@ -1,29 +1,29 @@
-
-import Extractor from './Extractor';
+import BasicExtractor from './BasicExtractor';
 import _ = require('lodash');
-
-class CatchExtractor extends Extractor
+class CatchExtractor extends BasicExtractor
 {
 	static DomainList=['www.catch.com.au','catch.com.au']
 
-	getTitle():string{
-		return this._domReader.text('.product-container h1[itemprop="name"]');
+	protected extractedField={
+		title:'.product-container h1[itemprop="name"]',
+		price:'div.price--main div.price--price-parts',
+		category:['div.breadcrumb span[itemprop="itemListElement"]',2,'span[itemprop="name"]']
+
 	}
 
-	getPrice():string{
-		return this._domReader.text('div.price--main div.price--price-parts');
-	}
-	
 	getCategory():string{
-		let category=this._domReader.text('div.breadcrumb span[itemprop="itemListElement"]',2,'span[itemprop="name"]');
+		let category=super.getCategory();
 		if(_.isEmpty(category)){
 			category='Catch Special';
 		}
-
-		 return category;
+        return category;
 	}
-
-	
 }
 
 export default CatchExtractor;
+
+
+
+
+
+

@@ -9,6 +9,5 @@ export default abstract class Exporter
 	}
 
 	abstract export(data:PriceData): void;
-	
 
 }

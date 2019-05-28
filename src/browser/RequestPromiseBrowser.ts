@@ -5,7 +5,6 @@ import PriceData from '../PriceData';
 import Browser from './Browser';
 
 export default class  RequestPromiseBrowser extends Browser{
-	
 	request (url) {
 			console.log('requestPromise');
 			var options = {
@@ -14,7 +13,6 @@ export default class  RequestPromiseBrowser extends Browser{
 					return cheerio.load(body);
 				}
 			};
-
 
 			return requestPromise(options).then(($) => {
 				let domain = UrlParser(url).hostname;
@@ -34,9 +32,6 @@ export default class  RequestPromiseBrowser extends Browser{
 					url: url,
 					other: other,
 				};
-				console.log(priceInfo)
-			
-
 				return priceInfo;
 			}).catch(function (err) {
 				console.log(err);

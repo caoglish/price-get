@@ -4,8 +4,6 @@ import CatchExtractor from './CatchExtractor';
 import OfficeworksExtractor from './OfficeworksExtractor';
 import TheGoodGuysExtractor from './TheGoodGuysExtractor';
 
-
- 
 let list=[
 	PcCaseGearExtractor,
 	DysonExtractor,
@@ -13,8 +11,5 @@ let list=[
 	OfficeworksExtractor,
 	TheGoodGuysExtractor,
 ]
-
-	
-
 
 export default list;
