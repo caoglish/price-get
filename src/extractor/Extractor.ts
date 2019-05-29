@@ -1,5 +1,6 @@
 import cheerio = require('cheerio');
 import DomReader from '../lib/DomReader';
+import PriceData from '../PriceData';
 
 
 export default abstract class Extractor
@@ -8,7 +9,7 @@ export default abstract class Extractor
 	static isAjaxLoadPage:boolean=false;
 	static waitForSelector:string="";
 	static waitFor:any=1000;
-	_$:CheerioStatic; 
+	_$:CheerioStatic;
 	_url:string;
 	protected _domReader:DomReader;
 	constructor(cheerio:CheerioStatic,url:string){
@@ -21,6 +22,16 @@ export default abstract class Extractor
 	abstract getCategory (): string;
 	getOther():any{
 		return null;
+	}
+	getInfo():PriceData{
+		let priceInfo: PriceData = {
+			title: this.getTitle(),
+			price:  this.getPrice(),
+			category: this.getCategory(),
+			url: this._url,
+			other: this.getOther(),
+		};
+		return priceInfo;
 	}
 
 }

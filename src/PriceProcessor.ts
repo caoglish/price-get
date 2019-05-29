@@ -28,13 +28,12 @@ class PriceProcessor {
 	process(url: string) {
 		let domain = UrlParser(url).hostname;
 		let browser = this.pickProcess(domain);
-		
+
 
 		return browser.request(url).then((priceInfo)=>{
 			this.exportor.export(priceInfo);
 		});
 
 	}
-	
 }
 export default PriceProcessor;

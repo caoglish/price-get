@@ -19,9 +19,10 @@ call node dist\main.js --url "https://www.catch.com.au/event/caribee-snow-drift-
 
 
 call node dist\main.js --url https://www.officeworks.com.au/shop/officeworks/p/toshiba-4tb-canvio-basics-portable-hard-drive-black-tobacv4tb
+call node dist\main.js --url https://www.officeworks.com.au/shop/officeworks/p/logitech-mx-master-2s-wireless-mouse-graphite-inlogma2s
 
 call node dist\main.js --url https://www.thegoodguys.com.au/dyson-big-ball-origin-barrel-vacuum-214886-01
 
-rem call node dist\main.js --url "https://www.apliexpress.com.au/event/caribee-snow-drift-jumbo-sleeping-bags-75263/product/caribee-snow-drift-jumbo-left-zip-sleeping-bag-306356/?e=sports-outdoor&st=1&sid=75263&sp=2&asp=&aqi="
+call node dist\main.js --url "https://www.apliexpress.com.au/event/caribee-snow-drift-jumbo-sleeping-bags-75263/product/caribee-snow-drift-jumbo-left-zip-sleeping-bag-306356/?e=sports-outdoor&st=1&sid=75263&sp=2&asp=&aqi="
 
-@echo on
+REM @echo on
