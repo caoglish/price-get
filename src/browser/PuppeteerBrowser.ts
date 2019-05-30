@@ -4,6 +4,8 @@ import UrlParser = require('url-parse');
 
 import Browser from './Browser';
 import PriceError from "../PriceError";
+import PcCaseGearSearcher from "../extractor/PcCaseGearSearcher";
+import _ = require("lodash");
 
 export default class PuppeteerBrowser extends Browser{
 	request(url) {
@@ -31,6 +33,39 @@ export default class PuppeteerBrowser extends Browser{
 			}).catch(function (err) {
 				console.log(err);
 				return new PriceError(err,url);
+			});;
+	}
+
+	
+	requestSearch(keyword:string,searcher:PcCaseGearSearcher){
+		console.log(keyword,searcher);
+		var options = {
+			uri: searcher.getSearchUrl(keyword),
+			transform: function (body) {
+				return cheerio.load(body);
+			}
+		};
+		return puppeteer.launch()
+			.then(function (browser) {
+				return browser.newPage();
+			}).then((page) => {
+				return page.goto(searcher.getSearchUrl(keyword)).then( function () {
+					console.log("wait:"+Date().toString());
+					return page.waitForSelector(searcher.waitForSelector).then(function(){
+						console.log("wait done:"+Date().toString());
+						return page.content();
+					})
+				});
+			}).then((html)=> {
+				let $=cheerio.load(html);
+				let $target=$('ul.ais-Hits-list a');
+				let list = $target.map(function(i,el){
+					let url=$(el).attr('href');
+					return url;
+				}).get();
+				return _.uniq(list);
+			}).catch(function (err) {
+				console.log(err);
 			});;
 	}
 }

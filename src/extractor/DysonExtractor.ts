@@ -1,5 +1,5 @@
 
-import Extractor from './Extractor';
+import Extractor from './PageExtractor';
 import _ = require('lodash');
 
 class DysonExtractor extends Extractor

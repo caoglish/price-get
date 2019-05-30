@@ -1,4 +1,4 @@
-import BasicExtractor from './BasicExtractor';
+import BasicExtractor from './BasicPageExtractor';
 import _ = require('lodash');
 class CatchExtractor extends BasicExtractor
 {

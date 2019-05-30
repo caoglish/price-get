@@ -1,6 +1,6 @@
 
 
-import BasicExtractor from './BasicExtractor';
+import BasicExtractor from './BasicPageExtractor';
 
 
 

@@ -3,14 +3,17 @@ import DomReader from '../lib/DomReader';
 import PriceData from '../PriceData';
 
 
-export default abstract class Extractor
+export default abstract class PageExtractor
 {
+
 	static DomainList:string[];
 	static isAjaxLoadPage:boolean=false;
 	static waitForSelector:string="";
 	static waitFor:any=1000;
 	_$:CheerioStatic;
 	_url:string;
+	
+
 	protected _domReader:DomReader;
 	constructor(cheerio:CheerioStatic,url:string){
 		this._$=cheerio;

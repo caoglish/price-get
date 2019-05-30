@@ -1,9 +1,9 @@
 import cheerio = require('cheerio');//ddfessdfdfs
 
-import Extractor from './Extractor';
+import PageExtractor from './PageExtractor';
 import _ = require('lodash');
 
-export default abstract class BasicExtractor extends Extractor
+export default abstract class BasicPageExtractor extends PageExtractor
 {
 	protected abstract extractedField:ExtractedFieldInteface;
 	getTitle():string{
