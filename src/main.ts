@@ -22,17 +22,17 @@ let keyword = args['keyword'];
 let site = args['site'];
 
 
- let priceProcessor = new PriceProcessor(new JsonExporter({
+let priceProcessor = new PriceProcessor(new JsonExporter({
 	filename: filename,
 	newfile: isNewFile
 }));
 
-let processPromise:any;
+let processPromise: any;
 
-if(!_.isEmpty(url)){
-	processPromise=priceProcessor.process(url)
-}else if(!_.isEmpty(keyword)){
-	processPromise=priceProcessor.processSearch(keyword,site)
+if (!_.isEmpty(url)) {
+	processPromise = priceProcessor.process(url)
+} else if (!_.isEmpty(keyword)) {
+	processPromise = priceProcessor.processSearch(keyword, site)
 }
 
 processPromise.then(() => {

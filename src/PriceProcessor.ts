@@ -40,11 +40,12 @@ class PriceProcessor {
 	process(url: string) {
 		let domain = UrlParser(url).hostname;
 		let browser = this.pickProcess(domain);
-		console.log(domain);
-		console.log(browser);
+		// console.log(domain);
+		// console.log(browser);
 		return browser.request(url).then((priceInfo) => {
 			console.log(priceInfo);
 			this.exportor.export(priceInfo);
+			return priceInfo;
 		});
 	}
 
@@ -52,23 +53,25 @@ class PriceProcessor {
 		let browser = new PuppeteerBrowser();
 		let extractor = ExtractorPicker.className(extractorName)
 		let searcher = extractor.searcher;
-		console.log(browser);
-		console.log(extractor);
-		console.log(searcher);
+		// console.log(browser);
+		// console.log(extractor);
+		// console.log(searcher);
+
 
 		return new Promise((resolve) => {
 			browser.requestSearch(keyword, searcher).then((urlList) => {
 				if (!_.isArray(urlList)) return;
 				console.log(urlList, urlList.length);
-				urlList.reduce((previousPromise, el) => {
+				let promiseList = urlList.map((el) => {
 					let requestUrl = 'https://' + extractor.DomainList[0] + el;
-					return previousPromise.then(() => {
-						return this.process(requestUrl);
+					return new Promise((resolve) => {
+						this.process(requestUrl).then((priceData) => resolve(priceData));
 					});
-				}, Promise.resolve())
-					.then(() => {
-						resolve();
-					});
+				});
+				Promise.all(promiseList).then((dataList)=>{
+					resolve(dataList);
+				})
+					
 			});
 		});
 	}
