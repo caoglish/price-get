@@ -4,6 +4,16 @@ import Stdout from './exporter/stdout';
 import JsonExporter from './exporter/JsonExporter';
 import _ = require('lodash');
 
+
+// import UrlParser = require('url-parse');
+// let a  = UrlParser("http://a.bbb.com.au/home/abc").hostname
+// console.log(a);
+//  a  = UrlParser("a.bbb.com.au/home/abc").hostname
+// console.log(a);
+// a  = UrlParser("home/abc").hostname
+// console.log(a);
+// process.exit();
+
 const program = new commander.Command();
 program.version('0.0.3')
 	.option('--url <url>', 'price get from url')

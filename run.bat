@@ -24,5 +24,16 @@ REM call node dist\main.js --url https://www.officeworks.com.au/shop/officeworks
 REM call node dist\main.js --url https://www.thegoodguys.com.au/dyson-big-ball-origin-barrel-vacuum-214886-01
 
 REM call node dist\main.js --url "https://www.apliexpress.com.au/event/caribee-snow-drift-jumbo-sleeping-bags-75263/product/caribee-snow-drift-jumbo-left-zip-sleeping-bag-306356/?e=sports-outdoor&st=1&sid=75263&sp=2&asp=&aqi="
-call node dist\main.js --keyword "GeForce RTX 2080" --site PcCaseGear --newFile --exportType json
+
+call node dist\main.js --keyword "GeForce RTX 1060" --site PcCaseGear --newFile --exportType json
+call node dist\main.js --keyword "GeForce RTX 1080" --site PcCaseGear 
+call node dist\main.js --keyword "GeForce RTX 1080 Ti" --site PcCaseGear
+call node dist\main.js --keyword "GeForce RTX 2060" --site PcCaseGear 
+call node dist\main.js --keyword "GeForce RTX 2070" --site PcCaseGear 
+call node dist\main.js --keyword "GeForce RTX 2080" --site PcCaseGear 
+call node dist\main.js --keyword "GeForce RTX 2080 TI" --site PcCaseGear 
+call node dist\main.js --keyword "SSD 500G" --site PcCaseGear 
+
+
+REM call node dist\main.js --keyword "Nike running shoe" --site Catch 
 REM @echo on

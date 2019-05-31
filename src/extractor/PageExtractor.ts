@@ -1,6 +1,7 @@
 import cheerio = require('cheerio');
 import DomReader from '../lib/DomReader';
 import PriceData from '../PriceData';
+import Searcher from './Searcher/Searcher';
 
 
 export default abstract class PageExtractor
@@ -10,6 +11,7 @@ export default abstract class PageExtractor
 	static isAjaxLoadPage:boolean=false;
 	static waitForSelector:string="";
 	static waitFor:any=1000;
+	static searcher:Searcher=null;
 	_$:CheerioStatic;
 	_url:string;
 	

@@ -4,7 +4,7 @@ import UrlParser = require('url-parse');
 
 import Browser from './Browser';
 import PriceError from "../PriceError";
-import PcCaseGearSearcher from "../extractor/PcCaseGearSearcher";
+import PcCaseGearSearcher from "../extractor/Searcher/PcCaseGearSearcher";
 import _ = require("lodash");
 
 export default class PuppeteerBrowser extends Browser{
@@ -36,7 +36,7 @@ export default class PuppeteerBrowser extends Browser{
 			});;
 	}
 
-	
+
 	requestSearch(keyword:string,searcher:PcCaseGearSearcher){
 		console.log(keyword,searcher);
 		var options = {
@@ -58,7 +58,7 @@ export default class PuppeteerBrowser extends Browser{
 				});
 			}).then((html)=> {
 				let $=cheerio.load(html);
-				let $target=$('ul.ais-Hits-list a');
+				let $target=$(searcher.searchResultArea);
 				let list = $target.map(function(i,el){
 					let url=$(el).attr('href');
 					return url;

@@ -3,7 +3,7 @@ import requestPromise = require('request-promise');
 import UrlParser = require('url-parse');
 import Browser from './Browser';
 import PriceError from "../PriceError";
-import PcCaseGearSearcher from "../extractor/PcCaseGearSearcher";
+import PcCaseGearSearcher from "../extractor/Searcher/PcCaseGearSearcher";
 
 export default class  RequestPromiseBrowser extends Browser{
 	request (url) {

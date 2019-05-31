@@ -1,7 +1,7 @@
 
 
 import BasicExtractor from './BasicPageExtractor';
-import PcCaseGearSearcher from './PcCaseGearSearcher';
+import PcCaseGearSearcher from './Searcher/PcCaseGearSearcher';
 
 
 

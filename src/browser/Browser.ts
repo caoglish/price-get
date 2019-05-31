@@ -1,6 +1,6 @@
 import _ = require('lodash');
 import ExtractorPicker from '../lib/ExtractorPicker';
-import PcCaseGearSearcher from '../extractor/PcCaseGearSearcher';
+import PcCaseGearSearcher from '../extractor/Searcher/PcCaseGearSearcher';
 export default abstract class Browser{
 	abstract request(url:string);
 	abstract requestSearch(keyword:string,searcher:PcCaseGearSearcher);

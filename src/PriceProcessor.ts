@@ -63,7 +63,11 @@ class PriceProcessor {
 				if (!_.isArray(urlList)) return;
 				console.log(urlList, urlList.length);
 				let promiseList = urlList.map((el) => {
-					let requestUrl = 'https://' + extractor.DomainList[0] + el;
+					let hostname=UrlParser(el).hostname;
+					let requestUrl=el;
+					if(hostname==""){
+						requestUrl = 'https://' + extractor.DomainList[0] +'/'+ _.trim(el,"/");
+					}
 					return new Promise((resolve) => {
 						this.process(requestUrl).then((priceData) => resolve(priceData));
 					});
