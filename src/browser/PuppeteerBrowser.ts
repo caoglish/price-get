@@ -15,7 +15,7 @@ export default class PuppeteerBrowser extends Browser{
 		if (domainExtractor == undefined) return new Promise((resolve)=>{
 			resolve(new PriceError("no such extractor",url));
 		});
-		return puppeteer.launch()
+		return puppeteer.launch({headless: true})
 			.then(function (browser) {
 				return browser.newPage();
 			}).then((page) => {
@@ -41,7 +41,7 @@ export default class PuppeteerBrowser extends Browser{
 		console.log(keyword,searcher);
 		var options = {
 			uri: searcher.getSearchUrl(keyword),
-			transform: function (body) {
+			transform: function (body:string) {
 				return cheerio.load(body);
 			}
 		};

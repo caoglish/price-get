@@ -14,7 +14,7 @@ class OfficeworksExtractor extends BasicExtractor
 	protected extractedField={
 		title:'h1[data-ref="product-title"]',
 		price:'span[class*="PriceText__ProductPrice"]',
-		category:'span[class*="Product__CategoryLink"]'
+		category:['ul[class*="Breadcrumbs__BreadcrumbsContainer"] li a',2]
 	}
 }
 

@@ -9,12 +9,14 @@ import ExtractorList from './extractor/ExtractorList';
 import Browser from './browser/Browser';
 import ExtractorPicker from './lib/ExtractorPicker';
 
+import PriceData from './PriceData';
+
 class PriceProcessor {
 	exportor: Exporter;
 	constructor(exportor: Exporter) {
 		this.exportor = exportor;
 	}
-	pickProcess(domain): Browser {
+	pickProcess(domain:string): Browser {
 		for (let extractor of ExtractorList) {
 			if (_.includes(extractor.DomainList, domain)) {
 				if (extractor.isAjaxLoadPage) {
@@ -41,8 +43,8 @@ class PriceProcessor {
 		let domain = UrlParser(url).hostname;
 		let browser = this.pickProcess(domain);
 		// console.log(domain);
-		// console.log(browser);
-		return browser.request(url).then((priceInfo) => {
+		 console.log(browser);
+		return browser.request(url).then((priceInfo:PriceData) => {
 			console.log(priceInfo);
 			this.exportor.export(priceInfo);
 			return priceInfo;
@@ -59,7 +61,7 @@ class PriceProcessor {
 
 
 		return new Promise((resolve) => {
-			browser.requestSearch(keyword, searcher).then((urlList) => {
+			browser.requestSearch(keyword, searcher).then((urlList:string[]) => {
 				if (!_.isArray(urlList)) return;
 				console.log(urlList, urlList.length);
 				let promiseList = urlList.map((el) => {
@@ -69,13 +71,12 @@ class PriceProcessor {
 						requestUrl = 'https://' + extractor.DomainList[0] +'/'+ _.trim(el,"/");
 					}
 					return new Promise((resolve) => {
-						this.process(requestUrl).then((priceData) => resolve(priceData));
+						this.process(requestUrl).then((priceData:PriceData) => resolve(priceData));
 					});
 				});
 				Promise.all(promiseList).then((dataList)=>{
 					resolve(dataList);
 				})
-					
 			});
 		});
 	}

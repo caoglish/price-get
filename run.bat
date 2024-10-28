@@ -1,5 +1,5 @@
 @echo off
-call gulp
+rem call gulp
 
 REM call node dist\main.js --url https://shop.dyson.com.au/vacuum-cleaners/handstick/dyson-v11-absolute-pro-269144-01 --newFile --exportType json
 REM call node dist\main.js --url=https://shop.dyson.com.au/vacuum-cleaners/handstick/dyson-v7-cord-free-248407-01
@@ -25,15 +25,20 @@ REM call node dist\main.js --url https://www.thegoodguys.com.au/dyson-big-ball-o
 
 REM call node dist\main.js --url "https://www.apliexpress.com.au/event/caribee-snow-drift-jumbo-sleeping-bags-75263/product/caribee-snow-drift-jumbo-left-zip-sleeping-bag-306356/?e=sports-outdoor&st=1&sid=75263&sp=2&asp=&aqi="
 
-call node dist\main.js --keyword "GeForce RTX 1060" --site PcCaseGear --newFile --exportType json
-call node dist\main.js --keyword "GeForce RTX 1080" --site PcCaseGear 
-call node dist\main.js --keyword "GeForce RTX 1080 Ti" --site PcCaseGear
-call node dist\main.js --keyword "GeForce RTX 2060" --site PcCaseGear 
-call node dist\main.js --keyword "GeForce RTX 2070" --site PcCaseGear 
-call node dist\main.js --keyword "GeForce RTX 2080" --site PcCaseGear 
-call node dist\main.js --keyword "GeForce RTX 2080 TI" --site PcCaseGear 
-call node dist\main.js --keyword "SSD 500G" --site PcCaseGear 
+rem call node dist\main.js --keyword "GeForce GTX 4092" --site PcCaseGear --newFile --exportType json
+rem call node dist\main.js --keyword "GeForce RTX 2070" --site PcCaseGear 
+rem call node dist\main.js --keyword "GeForce RTX 2080" --site PcCaseGear 
+rem call node dist\main.js --keyword "GeForce RTX 2080 TI" --site PcCaseGear
+REM call node dist\main.js --keyword "GeForce RTX 2060" --site PcCaseGear 
+REM call node dist\main.js --keyword "GeForce RTX 2070" --site PcCaseGear 
+REM call node dist\main.js --keyword "GeForce RTX 2080" --site PcCaseGear 
+REM call node dist\main.js --keyword "GeForce RTX 2080 TI" --site PcCaseGear 
+REM call node dist\main.js --keyword "SSD 500G" --site PcCaseGear 
 
 
 REM call node dist\main.js --keyword "Nike running shoe" --site Catch 
 REM @echo on
+
+
+rem call ts-node src\main.ts --keyword "GeForce GTX 4092" --site PcCaseGear --newFile --exportType json
+call ts-node src\main.ts --url https://www.officeworks.com.au/shop/officeworks/p/nintendo-switch-oled-model-white-nscnoledwe

@@ -6,7 +6,7 @@ import PriceError from "../PriceError";
 import PcCaseGearSearcher from "../extractor/Searcher/PcCaseGearSearcher";
 
 export default class  RequestPromiseBrowser extends Browser{
-	request (url) {
+	request (url:string) {
 		console.log('requestPromise');
 		let domain = UrlParser(url).hostname;
 		let domainExtractor = this.pickExtractor(domain);
@@ -15,7 +15,7 @@ export default class  RequestPromiseBrowser extends Browser{
 		});
 		var options = {
 			uri: url,
-			transform: function (body) {
+			transform: function (body:string) {
 				return cheerio.load(body);
 			}
 		};
@@ -33,7 +33,7 @@ export default class  RequestPromiseBrowser extends Browser{
 		console.log(keyword,searcher);
 		var options = {
 			uri: searcher.getSearchUrl(keyword),
-			transform: function (body) {
+			transform: function (body:string) {
 				return cheerio.load(body);
 			}
 		};

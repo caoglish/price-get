@@ -11,4 +11,4 @@ export default abstract class Searcher
 
 }
 
- 
+  
