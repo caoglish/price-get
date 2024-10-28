@@ -40,5 +40,5 @@ REM call node dist\main.js --keyword "Nike running shoe" --site Catch
 REM @echo on
 
 
-rem call ts-node src\main.ts --keyword "GeForce GTX 4092" --site PcCaseGear --newFile --exportType json
-call ts-node src\main.ts --url https://www.officeworks.com.au/shop/officeworks/p/nintendo-switch-oled-model-white-nscnoledwe
+call ts-node src\main.ts --keyword "GeForce GTX 4080" --site PcCaseGear --newFile --exportType json
+rem call ts-node src\main.ts --url https://www.officeworks.com.au/shop/officeworks/p/nintendo-switch-oled-model-white-nscnoledwe

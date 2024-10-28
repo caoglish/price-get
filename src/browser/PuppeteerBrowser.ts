@@ -8,6 +8,7 @@ import PcCaseGearSearcher from "../extractor/Searcher/PcCaseGearSearcher";
 import _ = require("lodash");
 
 export default class PuppeteerBrowser extends Browser{
+	private headless:boolean = false
 	request(url) {
 		console.log('puppeteer');
 		let domain = UrlParser(url).hostname;
@@ -15,7 +16,7 @@ export default class PuppeteerBrowser extends Browser{
 		if (domainExtractor == undefined) return new Promise((resolve)=>{
 			resolve(new PriceError("no such extractor",url));
 		});
-		return puppeteer.launch({headless: true})
+		return puppeteer.launch({headless: this.headless})
 			.then(function (browser) {
 				return browser.newPage();
 			}).then((page) => {
@@ -45,7 +46,7 @@ export default class PuppeteerBrowser extends Browser{
 				return cheerio.load(body);
 			}
 		};
-		return puppeteer.launch()
+		return puppeteer.launch({headless: this.headless})
 			.then(function (browser) {
 				return browser.newPage();
 			}).then((page) => {
