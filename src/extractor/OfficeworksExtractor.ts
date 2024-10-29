@@ -14,8 +14,18 @@ class OfficeworksExtractor extends BasicExtractor
 	protected extractedField={
 		title:'h1[data-ref="product-title"]',
 		price:'span[class*="PriceText__ProductPrice"]',
-		category:['ul[class*="Breadcrumbs__BreadcrumbsContainer"] li a',2]
+		category:'span[class*="__CategoryLink"]'
 	}
+
+	 getCategory():string|string[]{
+		let $categorylist=this._$(this.extractedField.category)
+		let _$=this._$
+		let list =$categorylist.map((i,n)=>{
+			return  _$(n).text()
+		}).get();
+		console.log("list",list)
+		return list;
+	 }
 }
 
 export default OfficeworksExtractor;

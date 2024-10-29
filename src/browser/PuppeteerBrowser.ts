@@ -8,7 +8,7 @@ import PcCaseGearSearcher from "../extractor/Searcher/PcCaseGearSearcher";
 import _ = require("lodash");
 
 export default class PuppeteerBrowser extends Browser{
-	private headless:boolean = false
+	private headless:boolean = true
 	request(url) {
 		console.log('puppeteer');
 		let domain = UrlParser(url).hostname;

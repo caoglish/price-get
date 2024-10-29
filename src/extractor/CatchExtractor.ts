@@ -12,7 +12,7 @@ class CatchExtractor extends BasicExtractor
 
 	}
 
-	getCategory():string{
+	getCategory():string|string[]{
 		let category=super.getCategory();
 		if(_.isEmpty(category)){
 			category='Catch Special';

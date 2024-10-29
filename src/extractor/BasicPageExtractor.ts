@@ -12,7 +12,7 @@ export default abstract class BasicPageExtractor extends PageExtractor
 	getPrice():string{
 		return this._domReader.text(this.extractedField.price);
 	}
-	getCategory():string{
+	getCategory():string|string[]{
 		if(_.isString(this.extractedField.category)){
 			return this._domReader.text(this.extractedField.category);
 		}else if(_.isArray(this.extractedField.category)){

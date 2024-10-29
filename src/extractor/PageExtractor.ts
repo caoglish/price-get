@@ -2,7 +2,7 @@ import cheerio = require('cheerio');
 import DomReader from '../lib/DomReader';
 import PriceData from '../PriceData';
 import Searcher from './Searcher/Searcher';
-
+import UrlParser = require('url-parse');
 
 export default abstract class PageExtractor
 {
@@ -24,9 +24,9 @@ export default abstract class PageExtractor
 	}
 	abstract getPrice(): string;
 	abstract getTitle(): string;
-	abstract getCategory (): string;
+	abstract getCategory (): string|string[];
 	getOther():any{
-		return null;
+		return {...this.getExtractorName()};
 	}
 	getInfo():PriceData{
 		let priceInfo: PriceData = {
@@ -34,9 +34,22 @@ export default abstract class PageExtractor
 			price:  this.getPrice(),
 			category: this.getCategory(),
 			url: this._url,
+			domain:this.getDomainName(),
+			
 			other: this.getOther(),
 		};
 		return priceInfo;
+	}
+
+	getExtractorName():{extracter:string}{
+		return {extracter: this.constructor.name}
+
+	}
+
+	getDomainName(){
+		let domain = UrlParser( this._url).hostname;
+		return domain
+		
 	}
 
 }
