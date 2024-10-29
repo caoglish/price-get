@@ -2,9 +2,9 @@ import _ = require('lodash');
 
 class DomReader
 {
-	_$:CheerioStatic; 
+	_$:cheerio.CheerioAPI; 
 	
-	constructor(cheerio:CheerioStatic){
+	constructor(cheerio:cheerio.CheerioAPI){
 		this._$=cheerio;
 	}
 

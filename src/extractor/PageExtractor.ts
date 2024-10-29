@@ -12,12 +12,12 @@ export default abstract class PageExtractor
 	static waitForSelector:string="";
 	static waitFor:any=1000;
 	static searcher:Searcher=null;
-	_$:CheerioStatic;
+	_$:cheerio.CheerioAPI;
 	_url:string;
 	
 
 	protected _domReader:DomReader;
-	constructor(cheerio:CheerioStatic,url:string){
+	constructor(cheerio:cheerio.CheerioAPI,url:string){
 		this._$=cheerio;
 		this._url=url;
 		this._domReader=new DomReader(this._$);

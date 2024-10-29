@@ -48,5 +48,5 @@ if (!_.isEmpty(url)) {
 processPromise.then(() => {
 	console.log("crawler processing is done!!!!");
 	console.log("");
-	process.exit();
+	process.exit(1);
 });
